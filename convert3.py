@@ -100,10 +100,7 @@ def main():
             folder = True
         else:
             print('unhandled option')
-    if url:
-        urlCSV(csvFile, output)
-        exit()
-    elif folder:
+    if folder:
         localCSV(csvFile)
         exit()
     singleCSV(csvFile, output)
