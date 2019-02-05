@@ -1,13 +1,9 @@
 import yaml
 import os
 import csv
-import codecs
-from urllib.request import urlopen
 import getopt
 import sys
-import fileinput
 
-# https://stackoverflow.com/questions/16283799/how-to-read-a-csv-file-from-a-url-with-python
 
 root = os.getcwd()
 
@@ -69,7 +65,7 @@ def singleCSV(csvFile, output=None):
 # print -h --help
 def usage():
     print(
-        '\nUsage:\n-i --input: path/link of file (if link use url flag)\n-o --output: path name of output, if left out will convert in this folder using its name as output\n-u --url: url flag indicating input is a url and should be treated as such\n-f --folder: flag indicating input is directory/folder and should be treate as such\n-h --help: print this/help stuff.....')
+        '\nUsage:\n-i --input: path of file \n-o --output: path name of output, if left out will convert in this folder using its name as output\n-f --folder: flag indicating input is directory/folder and should be treate as such\n-h --help: print this/help stuff.....')
 
 
 def main():
@@ -93,9 +89,7 @@ def main():
         elif o in ('-i', '--input'):
             csvFile = a
         elif o in ('-o', '--output'):
-            output = a
-        elif o in ('-u', '--url'):
-            url = True
+            output = a        
         elif o in ('-f', '--folder'):
             folder = True
         else:
